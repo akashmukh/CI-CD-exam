@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage ('dockerhub login'){
       steps{
-        sh 'docker login -u akashmukh -p me@akash13
+        sh 'docker login -u akashmukh -p me@akash13'
       }
     }
     stage ('image build'){
