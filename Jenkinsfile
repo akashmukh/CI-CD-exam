@@ -3,9 +3,12 @@ pipeline {
   stages {
     stage ('dockerhub login'){
       steps{
-        sh 'docker login -u akashmukh -p me@akash13'
+        //sh 'docker login -u akashmukh -p me@akash13'
+        withCredentials([usernamePassword(credentialsId: 'dockerhubID', passwordVariable: 'pass', usernameVariable: 'user')]) {
+                sh 'docker login -u $user -p $pass
+             }
+        }
       }
-    }
     stage ('image build'){
       steps{
         sh 'docker build -t my-apache2 .'
