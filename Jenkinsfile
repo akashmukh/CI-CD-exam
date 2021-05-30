@@ -22,7 +22,7 @@ pipeline {
       steps{
         sh 'docker tag my-apache2 akashmukh/exam:apache2-v2.0'
         sh 'docker push akashmukh/exam:apache2-v2.0'
-      }
-    }
-  }
+       }
+     }
+   }
  }
