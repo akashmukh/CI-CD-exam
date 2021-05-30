@@ -4,9 +4,9 @@ pipeline {
     stage ('dockerhub login'){
       steps{
         //sh 'docker login -u akashmukh -p me@akash13'
-        withCredentials([usernamePassword(credentialsId: 'dockerhubID', passwordVariable: 'pass', usernameVariable: 'user')]) {
-                  sh 'docker login -u $user -p $pass' 
-         }
+          withCredentials([usernameColonPassword(credentialsId: 'dockerhubID', variable: 'pass')]) {
+           sh 'docker login -u akashmukh -p $pass'
+          }
         }
       }
     stage ('image build'){
