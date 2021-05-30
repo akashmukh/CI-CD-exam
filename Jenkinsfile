@@ -6,7 +6,7 @@ pipeline {
         //sh 'docker login -u akashmukh -p me@akash13'
         script{
         withCredentials([usernamePassword(credentialsId: 'dockerhubID', passwordVariable: 'pass', usernameVariable: 'user')]) {
-                  sh 'docker -u $user -p $pass    
+                  sh 'docker -u $user -p $pass' 
          }
         }
       }
