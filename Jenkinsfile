@@ -6,12 +6,10 @@ pipeline {
         //sh 'docker login -u akashmukh -p me@akash13'
         script{
         withCredentials([usernamePassword(credentialsId: 'dockerhubID', passwordVariable: 'pass', usernameVariable: 'user')]) {
-        remote.user = user
-        remote.password = pass
+                  sh 'docker -u $user -p $pass    
          }
         }
       }
-    } 
     stage ('image build'){
       steps{
         sh 'docker build -t my-apache2 .'
